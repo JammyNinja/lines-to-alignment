@@ -527,10 +527,24 @@ nav {
 .slot:hover { border-color: var(--moss); color: var(--jungle); }
 .slot.sel { background: var(--forest); color: var(--cream); border-color: var(--forest); }
 
-.confirm-screen { display: none; text-align: center; padding: 6rem 2rem; }
-.confirm-ring { width: 90px; height: 90px; border-radius: 50%; background: linear-gradient(135deg, var(--jungle), var(--moss)); margin: 0 auto 2rem; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: white; box-shadow: 0 20px 60px rgba(44,95,62,0.3); }
-.confirm-screen h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; font-weight: 400; color: var(--forest); margin-bottom: 1rem; }
-.confirm-screen p { color: var(--sage); font-size: 0.95rem; line-height: 1.8; font-weight: 300; }
+.cal-btn {
+  font-size: 0.78rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--moss);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+.mcard:hover .cal-btn { color: var(--jungle); }
+
+.book-note {
+  text-align: center;
+  padding: 0 4rem 5rem;
+  font-size: 0.85rem;
+  color: var(--sage);
+  font-weight: 300;
+}
+.book-note strong { color: var(--moss); font-weight: 500; }
 
 /* ANIMATIONS */
 @keyframes fadeUp {
@@ -752,7 +766,7 @@ nav {
         <p class="intro-text fu d3">I'd love to hear from you — whether you have a question, want to know if we're the right fit, or simply feel drawn to reach out. There's no pressure, just a warm welcome.</p>
         <div class="cinfo fu d4">
           <div class="cinfo-dot">✉</div>
-          <div class="cinfo-text"><strong>Email</strong><span>templou@sharklasers.com</span></div>
+          <div class="cinfo-text"><strong>Email</strong><span><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="96e2f3fbe6faf9e3d6e5fef7e4fdfaf7e5f3e4e5b8f5f9fb">[email&#160;protected]</a></span></div>
         </div>
         <div class="cinfo fu d4">
           <div class="cinfo-dot">◎</div>
@@ -769,15 +783,7 @@ nav {
       <p class="eyebrow fu d1">Send a message</p>
       <h2 class="fu d2">How can I help you?</h2>
 
-      <!--
-        FORMSPREE SETUP (takes 2 minutes):
-        1. Go to https://formspree.io and create a free account
-        2. Click "New Form", name it "Lines For Alignment Contact"
-        3. Copy the form endpoint URL they give you (looks like: https://formspree.io/f/xxxxxxxx)
-        4. Replace "YOUR_FORMSPREE_ID" below with just the ID part (the xxxxxxxx)
-        Then this form will email submissions directly to templou@sharklasers.com
-      -->
-      <form action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST" onsubmit="handleContact(event)">
+      <form action="https://formspree.io/f/xpqjbogy" method="POST" onsubmit="handleContact(event)">
         <input type="hidden" name="_replyto" value="templou@sharklasers.com">
         <input type="hidden" name="_subject" value="New message — Lines For Alignment">
         <div class="frow fu d3">
@@ -803,7 +809,7 @@ nav {
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
           </button>
         </div>
-        <p class="formspree-note fu d5">⚙ To activate real email delivery, follow the Formspree instructions in the HTML comments above the form.</p>
+
         <div class="success-toast" id="ctSuccess">✓ &nbsp; Thank you for reaching out — I'll be in touch very soon 🌿</div>
       </form>
     </div>
@@ -812,77 +818,60 @@ nav {
 
 <!-- ══════════ BOOK PAGE ══════════ -->
 <div class="page" id="page-book">
-  <div id="bookMain">
-    <div class="book-top">
-      <div class="leaf-bg"></div>
-      <p class="eyebrow fu d1">Take the first step</p>
-      <h1 class="fu d2">Book a <em>Session</em></h1>
-      <p class="fu d3">All sessions take place online via video call — from wherever you are in the world. Choose the session that feels right for where you are right now.</p>
-    </div>
+  <div class="book-top">
+    <div class="leaf-bg"></div>
+    <p class="eyebrow fu d1">Take the first step</p>
+    <h1 class="fu d2">Book a <em>Session</em></h1>
+    <p class="fu d3">All sessions take place online via video call — from wherever you are in the world. Choose the session that feels right for where you are right now.</p>
+  </div>
 
-    <div class="meeting-picker fu d2">
-      <div class="mcard sel" onclick="pickMeeting(this)">
-        <div class="tick">✓</div>
-        <div class="mtag">Free</div>
-        <h3>Discovery Call</h3>
-        <div class="mdur">⏱ 20 minutes</div>
-        <p class="mdesc">A relaxed, no-pressure conversation to see if Lines For Alignment is the right fit for you.</p>
-      </div>
-      <div class="mcard" onclick="pickMeeting(this)">
-        <div class="tick">✓</div>
-        <div class="mtag">Single Session</div>
-        <h3>Wellbeing Session</h3>
-        <div class="mdur">⏱ 60 minutes</div>
-        <p class="mdesc">A focused 1:1 coaching session — bring whatever is present for you and we'll explore it together.</p>
-      </div>
-      <div class="mcard" onclick="pickMeeting(this)">
-        <div class="tick">✓</div>
-        <div class="mtag">Programme</div>
-        <h3>Alignment Journey</h3>
-        <div class="mdur">⏱ 6 × 60 min sessions</div>
-        <p class="mdesc">A deeper commitment to transformation — six sessions over six weeks, with support in between.</p>
+  <!-- Session type cards — clicking opens the matching Calendly link -->
+  <div class="meeting-picker fu d2">
+    <div class="mcard" onclick="openCal('discovery')">
+      <div class="mtag">Free</div>
+      <h3>Discovery Call</h3>
+      <div class="mdur">⏱ 20 minutes</div>
+      <p class="mdesc">A relaxed, no-pressure conversation to see if Lines For Alignment is the right fit for you.</p>
+      <div style="margin-top:1.5rem">
+        <span class="cal-btn">View availability →</span>
       </div>
     </div>
-
-    <div class="booking-form-wrap fu d3">
-      <h2>Your Details</h2>
-      <form onsubmit="handleBook(event)">
-        <div class="frow">
-          <div class="fg"><label>Full Name</label><input type="text" placeholder="Your name" required></div>
-          <div class="fg"><label>Email</label><input type="email" placeholder="your@email.com" required></div>
-        </div>
-        <div class="fg"><label>Preferred Date</label><input type="date" required></div>
-        <div class="fg">
-          <label>Preferred Time (GMT)</label>
-          <div class="slots">
-            <button type="button" class="slot sel" onclick="pickSlot(this)">8:00 AM</button>
-            <button type="button" class="slot" onclick="pickSlot(this)">9:00 AM</button>
-            <button type="button" class="slot" onclick="pickSlot(this)">10:00 AM</button>
-            <button type="button" class="slot" onclick="pickSlot(this)">11:00 AM</button>
-            <button type="button" class="slot" onclick="pickSlot(this)">1:00 PM</button>
-            <button type="button" class="slot" onclick="pickSlot(this)">2:00 PM</button>
-            <button type="button" class="slot" onclick="pickSlot(this)">4:00 PM</button>
-            <button type="button" class="slot" onclick="pickSlot(this)">6:00 PM</button>
-          </div>
-        </div>
-        <div class="fg">
-          <label>Anything you'd like me to know beforehand? (Optional)</label>
-          <textarea style="height:90px;width:100%;border:none;border-bottom:1px solid var(--line);background:transparent;font-family:'Jost',sans-serif;font-size:.95rem;color:var(--forest);outline:none;padding:.7rem 0;resize:none;" placeholder="e.g. what's going on for you, any questions, your time zone…"></textarea>
-        </div>
-        <button type="submit" class="btn">
-          Confirm Booking
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
-      </form>
+    <div class="mcard" onclick="openCal('wellbeing')">
+      <div class="mtag">Single Session</div>
+      <h3>Wellbeing Session</h3>
+      <div class="mdur">⏱ 60 minutes</div>
+      <p class="mdesc">A focused 1:1 coaching session — bring whatever is present for you and we'll explore it together.</p>
+      <div style="margin-top:1.5rem">
+        <span class="cal-btn">View availability →</span>
+      </div>
+    </div>
+    <div class="mcard" onclick="openCal('journey')">
+      <div class="mtag">Programme</div>
+      <h3>Alignment Journey</h3>
+      <div class="mdur">⏱ 6 × 60 min sessions</div>
+      <p class="mdesc">A deeper commitment to transformation — six sessions over six weeks, with support in between.</p>
+      <div style="margin-top:1.5rem">
+        <span class="cal-btn">View availability →</span>
+      </div>
     </div>
   </div>
 
-  <div class="confirm-screen" id="bookConfirm">
-    <div class="confirm-ring">🌿</div>
-    <h2>You're booked in!</h2>
-    <p>A confirmation will be on its way to your inbox shortly.<br>I so look forward to meeting you — see you soon 🌱</p>
-    <br><br>
-    <button class="btn" onclick="resetBook()" style="margin:0 auto">Book Another Session</button>
+  <!-- Calendly inline embed — loads when a session card is clicked -->
+  <div id="cal-embed-wrap" style="display:none; max-width:1000px; margin: 0 auto; padding: 0 4rem 6rem;">
+    <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:1.5rem;">
+      <h2 style="font-family:'Playfair Display',serif; font-size:1.6rem; font-weight:400; color:var(--forest);" id="cal-title">Choose a time</h2>
+      <button onclick="closeCal()" style="background:none;border:1px solid var(--line);padding:0.5rem 1rem;font-family:'Jost',sans-serif;font-size:0.78rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);cursor:pointer;">✕ Close</button>
+    </div>
+    <!-- Calendly inline widget -->
+    <div class="calendly-inline-widget" id="calendly-embed"
+      data-url="https://calendly.com/chrislines96"
+      style="min-width:320px; height:700px;">
+    </div>
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+  </div>
+
+  <div class="book-note fu d3">
+    <p>🔒 Scheduling is handled securely via <strong>Calendly</strong>. You'll receive a confirmation email instantly after booking.</p>
   </div>
 </div>
 
@@ -900,40 +889,66 @@ nav {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  function pickMeeting(el) {
-    document.querySelectorAll('.mcard').forEach(c => c.classList.remove('sel'));
-    el.classList.add('sel');
+  // ── CALENDLY INTEGRATION ──
+  // Calendly username: chrislines96
+  // Tip: if Chris creates separate event types, replace each URL with the specific event link e.g. https://calendly.com/chrislines96/discovery-call
+  const calendlyLinks = {
+    discovery: 'https://calendly.com/chrislines96',
+    wellbeing:  'https://calendly.com/chrislines96',
+    journey:    'https://calendly.com/chrislines96'
+  };
+
+  const calTitles = {
+    discovery: 'Discovery Call — Choose a time',
+    wellbeing:  'Wellbeing Session — Choose a time',
+    journey:    'Alignment Journey — Choose a time'
+  };
+
+  function openCal(type) {
+    const wrap = document.getElementById('cal-embed-wrap');
+    const embed = document.getElementById('calendly-embed');
+    document.getElementById('cal-title').textContent = calTitles[type];
+    wrap.style.display = 'block';
+    if (window.Calendly) {
+      embed.innerHTML = '';
+      Calendly.initInlineWidget({ url: calendlyLinks[type], parentElement: embed });
+    } else {
+      embed.setAttribute('data-url', calendlyLinks[type]);
+    }
+    wrap.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  function pickSlot(el) {
-    document.querySelectorAll('.slot').forEach(s => s.classList.remove('sel'));
-    el.classList.add('sel');
+  function closeCal() {
+    document.getElementById('cal-embed-wrap').style.display = 'none';
   }
 
   function handleContact(e) {
-    // If Formspree ID has been set, let the form submit normally to Formspree
-    const action = e.target.action;
-    if (action.includes('YOUR_FORMSPREE_ID')) {
-      e.preventDefault(); // Still in demo mode
-      const t = document.getElementById('ctSuccess');
-      t.style.display = 'block';
-      e.target.querySelectorAll('input[type=text], input[type=email], textarea, select').forEach(el => el.value = '');
-      setTimeout(() => t.style.display = 'none', 6000);
-    }
-    // Otherwise form posts to Formspree naturally
-  }
-
-  function handleBook(e) {
+    // Live — submits to Formspree (https://formspree.io/f/xpqjbogy)
+    // Emails delivered to templou@sharklasers.com
     e.preventDefault();
-    document.getElementById('bookMain').style.display = 'none';
-    const c = document.getElementById('bookConfirm');
-    c.style.display = 'block';
-    c.style.animation = 'fadeUp 0.7s ease forwards';
-  }
-
-  function resetBook() {
-    document.getElementById('bookMain').style.display = 'block';
-    document.getElementById('bookConfirm').style.display = 'none';
+    const form = e.target;
+    fetch(form.action, {
+      method: 'POST',
+      body: new FormData(form),
+      headers: { 'Accept': 'application/json' }
+    }).then(res => {
+      const t = document.getElementById('ctSuccess');
+      if (res.ok) {
+        t.textContent = '✓  Thank you for reaching out — I\'ll be in touch very soon 🌿';
+        t.style.borderLeftColor = 'var(--moss)';
+        form.querySelectorAll('input[type=text], input[type=email], textarea, select').forEach(el => el.value = '');
+      } else {
+        t.textContent = '⚠  Something went wrong — please email hello@linesforalignment.com directly.';
+        t.style.borderLeftColor = '#c0392b';
+      }
+      t.style.display = 'block';
+      setTimeout(() => t.style.display = 'none', 7000);
+    }).catch(() => {
+      const t = document.getElementById('ctSuccess');
+      t.textContent = '⚠  Could not connect — please email hello@linesforalignment.com directly.';
+      t.style.borderLeftColor = '#c0392b';
+      t.style.display = 'block';
+    });
   }
 </script>
 </body>
