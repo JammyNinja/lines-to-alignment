@@ -1,14 +1,14 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
 :root {
-  --forest:   #1B3A2D;
-  --jungle:   #2C5F3E;
-  --moss:     #4A7C59;
-  --sage:     #8FB89A;
-  --mist:     #D6E8D4;
-  --cream:    #F4F1EB;
-  --gold:     #C8A96A;
-  --line:     rgba(27,58,45,0.12);
+  --forest:   #1A4828;
+  --jungle:   #255C33;
+  --moss:     #3B7A48;
+  --sage:     #7AAD87;
+  --mist:     #C5DCC8;
+  --cream:    #E8E2D2;
+  --gold:     #B89A54;
+  --line:     rgba(26,72,40,0.12);
   --line-l:   rgba(255,255,255,0.15);
 }
 
@@ -37,7 +37,7 @@ nav {
   align-items: center;
   justify-content: space-between;
   padding: 1.4rem 4rem;
-  background: rgba(27,58,45,0.97);
+  background: rgba(26,72,40,0.97);
   backdrop-filter: blur(14px);
   border-bottom: 1px solid var(--line-l);
 }
@@ -59,7 +59,7 @@ nav {
   font-size: 0.78rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(244,241,235,0.55);
+  color: rgba(232,226,210,0.55);
   text-decoration: none;
   transition: color 0.3s;
   cursor: pointer;
@@ -148,7 +148,7 @@ nav {
   font-family: 'Playfair Display', serif;
   font-style: italic;
   font-size: 1.05rem;
-  color: rgba(244,241,235,0.5);
+  color: rgba(232,226,210,0.5);
   line-height: 1.75;
   max-width: 280px;
   margin: 0 auto;
@@ -197,7 +197,7 @@ nav {
 
 .bio-divider { width: 50px; height: 2px; background: linear-gradient(90deg, var(--gold), transparent); margin-bottom: 2.5rem; }
 
-.bio-text { font-size: 0.95rem; line-height: 1.9; color: #4A5A50; margin-bottom: 1.4rem; font-weight: 300; }
+.bio-text { font-size: 0.95rem; line-height: 1.9; color: #445040; margin-bottom: 1.4rem; font-weight: 300; }
 
 .photo-note {
   display: inline-block;
@@ -240,7 +240,7 @@ nav {
 .svc-card:hover { background: var(--jungle); }
 .svc-icon { font-size: 1.6rem; margin-bottom: 1.2rem; }
 .svc-card h3 { font-family: 'Playfair Display', serif; font-size: 1.2rem; color: var(--cream); margin-bottom: 0.75rem; font-weight: 400; }
-.svc-card p { font-size: 0.875rem; color: rgba(214,232,212,0.65); line-height: 1.75; font-weight: 300; }
+.svc-card p { font-size: 0.875rem; color: rgba(197,220,200,0.65); line-height: 1.75; font-weight: 300; }
 
 /* ════════════ TESTIMONIALS PAGE ════════════ */
 .testi-top {
@@ -264,7 +264,7 @@ nav {
 .testi-top h1 em { font-style: italic; color: var(--sage); }
 .testi-top p {
   font-size: 0.95rem;
-  color: rgba(244,241,235,0.58);
+  color: rgba(232,226,210,0.58);
   max-width: 560px;
   margin: 0 auto;
   line-height: 1.85;
@@ -374,7 +374,7 @@ nav {
 .contact-panel .intro-text {
   font-size: 0.9rem;
   line-height: 1.85;
-  color: rgba(244,241,235,0.6);
+  color: rgba(232,226,210,0.6);
   margin-bottom: 3rem;
   font-weight: 300;
 }
@@ -387,7 +387,7 @@ nav {
   font-size: 0.9rem; color: var(--gold); flex-shrink: 0;
 }
 .cinfo-text strong { display: block; font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 0.2rem; font-weight: 500; }
-.cinfo-text span { font-size: 0.88rem; color: rgba(244,241,235,0.7); font-weight: 300; }
+.cinfo-text span { font-size: 0.88rem; color: rgba(232,226,210,0.7); font-weight: 300; }
 
 .contact-form-area {
   padding: 6rem 5rem;
@@ -479,7 +479,7 @@ nav {
 .book-top h1 em { font-style: italic; color: var(--sage); }
 .book-top p {
   font-size: 0.95rem;
-  color: rgba(244,241,235,0.58);
+  color: rgba(232,226,210,0.58);
   max-width: 560px;
   margin: 0 auto;
   line-height: 1.85;
@@ -501,13 +501,13 @@ nav {
 .mcard:hover { background: var(--mist); }
 .mcard.sel { background: var(--forest); }
 .mcard.sel h3 { color: var(--cream); }
-.mcard.sel .mdur { color: rgba(244,241,235,0.55); }
+.mcard.sel .mdur { color: rgba(232,226,210,0.55); }
 .mcard.sel .mdesc { color: rgba(214,232,212,0.6); }
 .mtag { font-size: 0.68rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--moss); font-weight: 500; margin-bottom: 0.75rem; }
 .mcard.sel .mtag { color: var(--gold); }
 .mcard h3 { font-family: 'Playfair Display', serif; font-size: 1.25rem; font-weight: 400; margin-bottom: 0.4rem; color: var(--forest); }
 .mdur { font-size: 0.8rem; color: var(--sage); margin-bottom: 0.9rem; font-weight: 500; }
-.mdesc { font-size: 0.85rem; color: #4A5A50; line-height: 1.7; font-weight: 300; }
+.mdesc { font-size: 0.85rem; color: #445040; line-height: 1.7; font-weight: 300; }
 .tick { position: absolute; top: 1.2rem; right: 1.2rem; width: 22px; height: 22px; background: var(--gold); border-radius: 50%; display: none; align-items: center; justify-content: center; font-size: 0.65rem; color: white; }
 .mcard.sel .tick { display: flex; }
 
