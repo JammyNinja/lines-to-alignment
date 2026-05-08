@@ -6,7 +6,7 @@
   --moss:     #3B7A48;
   --sage:     #7AAD87;
   --mist:     #C5DCC8;
-  --cream:    #E8E2D2;
+  --cream:    #F1EBDD;
   --gold:     #B89A54;
   --line:     rgba(26,72,40,0.12);
   --line-l:   rgba(255,255,255,0.15);
@@ -36,22 +36,23 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 1.4rem 4rem;
-  background: rgba(26,72,40,0.97);
+  padding: 0.6rem 4rem;
+  background: var(--cream);
   backdrop-filter: blur(14px);
-  border-bottom: 1px solid var(--line-l);
+  border-bottom: 1px solid var(--line);
 }
 
 .nav-logo {
-  font-family: 'Playfair Display', serif;
-  font-size: 1.35rem;
-  font-weight: 400;
-  color: var(--cream);
   cursor: pointer;
-  letter-spacing: 0.02em;
-  line-height: 1.2;
+  display: flex;
+  align-items: center;
 }
-.nav-logo span { color: var(--gold); font-style: italic; display: block; font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; font-family: 'Jost', sans-serif; font-style: normal; margin-top: 1px; }
+
+.nav-logo-img {
+  height: 72px;
+  width: auto;
+  display: block;
+}
 
 .nav-links { display: flex; gap: 2.5rem; list-style: none; }
 
@@ -59,31 +60,31 @@ nav {
   font-size: 0.78rem;
   letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: rgba(232,226,210,0.55);
+  color: rgba(26,72,40,0.5);
   text-decoration: none;
   transition: color 0.3s;
   cursor: pointer;
   font-weight: 500;
 }
-.nav-links a:hover { color: var(--cream); }
-.nav-links a.active { color: var(--gold); position: relative; }
+.nav-links a:hover { color: var(--forest); }
+.nav-links a.active { color: var(--forest); position: relative; }
 .nav-links a.active::after {
   content: '';
   position: absolute;
   bottom: -5px; left: 0; right: 0;
   height: 1px;
-  background: var(--gold);
+  background: var(--forest);
 }
 
 /* PAGES */
-.page { display: none; padding-top: 78px; min-height: 100vh; }
+.page { display: none; padding-top: 88px; min-height: 100vh; }
 .page.active { display: block; }
 
 /* ════════════ BIO PAGE ════════════ */
 .bio-hero {
   display: grid;
   grid-template-columns: 1fr 1.1fr;
-  min-height: calc(100vh - 78px);
+  min-height: calc(100vh - 88px);
   overflow: hidden;
 }
 
@@ -348,7 +349,7 @@ nav {
 .contact-wrap {
   display: grid;
   grid-template-columns: 1fr 1.5fr;
-  min-height: calc(100vh - 78px);
+  min-height: calc(100vh - 88px);
 }
 
 .contact-panel {
