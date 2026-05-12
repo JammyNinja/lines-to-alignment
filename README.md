@@ -1,3 +1,3 @@
-Hi Chris :)
+This is a simple website I made for my good friend and coach, Chris
 
-To access the website as it is, please go to [https://jammyninja.github.io/lines-to-alignment/](https://jammyninja.github.io/lines-to-alignment/)
+## [linestoalignment.life](https://linestoalignment.life/)
