@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=7">
+<link rel="stylesheet" href="styles.css?v=8">
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" defer></script>
 </head>
 <body class="home-active">
@@ -405,50 +405,44 @@
   <div class="book-top">
     <div class="leaf-bg"></div>
     <p class="eyebrow fu d1">Take the first step</p>
-    <h1 class="fu d2">Book a <em>Session</em></h1>
-    <p class="fu d3">Choose the container that best fits your current journey. All sessions are held online via secure video call.</p>
+    <h1 class="fu d2">Book a <em>Free Call</em></h1>
+    <p class="fu d3">Start with a free 20-minute conversation. If it feels right, we'll agree the best way to work together. All sessions are held online via secure video call.</p>
   </div>
 
   <div class="book-body">
     <div class="meeting-picker fu d2">
-      <div class="mcard" onclick="openCal('discovery')">
+      <div class="mcard mcard-book" role="button" tabindex="0" onclick="openCal('discovery')">
         <div class="mtag">Connection Call</div>
         <h3>Free</h3>
-        <div class="mdur">⏱ 20 minutes</div>
+        <div class="mdur"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>20 minutes</div>
         <p class="mdesc">A relaxed, no-pressure conversation to see if Lines To Alignment is the right fit for you.</p>
         <div style="margin-top:1.5rem">
-          <span class="cal-btn">View availability →</span>
+          <span class="cal-btn">Choose a time →</span>
         </div>
       </div>
 
-      <div class="mcard" onclick="openCal('foundation')">
+      <div class="mcard mcard-info">
         <div class="mtag">1 Month Foundation</div>
         <h3>£250</h3>
-        <div class="mdur">⏱ 4 Weekly Calls</div>
+        <div class="mdur"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>4 Weekly Calls</div>
         <p class="mdesc">Designed for new clients wanting to build connection, clarity, and momentum before committing longer term.</p>
-        <div style="margin-top:1.5rem">
-          <span class="cal-btn">View availability →</span>
-        </div>
+        <p class="mnote">Agreed after your free call</p>
       </div>
 
-      <div class="mcard" onclick="openCal('wellbeing')">
+      <div class="mcard mcard-info">
         <div class="mtag">3 Month Container</div>
         <h3>£600</h3>
-        <div class="mdur">⏱ 12 Weekly Calls</div>
+        <div class="mdur"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>12 Weekly Calls</div>
         <p class="mdesc">Focused on creating deeper shifts in mindset, behaviour, and life direction.</p>
-        <div style="margin-top:1.5rem">
-          <span class="cal-btn">View availability →</span>
-        </div>
+        <p class="mnote">Agreed after your free call</p>
       </div>
 
-      <div class="mcard" onclick="openCal('journey')">
+      <div class="mcard mcard-info">
         <div class="mtag">6 Month Container</div>
         <h3>£1000</h3>
-        <div class="mdur">⏱ 24 Weekly Calls</div>
+        <div class="mdur"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>24 Weekly Calls</div>
         <p class="mdesc">For those ready to commit to long-term transformation and meaningful change.</p>
-        <div style="margin-top:1.5rem">
-          <span class="cal-btn">View availability →</span>
-        </div>
+        <p class="mnote">Agreed after your free call</p>
       </div>
     </div>
 
@@ -462,7 +456,7 @@
   </div>
 
   <div class="book-note fu d3">
-    <p>🔒 Scheduling is handled securely via <strong>Calendly</strong>. Flexible payment plans are available for all containers.</p>
+    <p><svg class="note-icon" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V8a4 4 0 0 1 8 0v3"/></svg>Scheduling is handled securely via <strong>Calendly</strong>. Packages are agreed together after your free call, and flexible payment plans are available for all of them.</p>
   </div>
 </div>
 
@@ -508,6 +502,14 @@
 </footer>
 
 <script>
+  // Let keyboard users open the booking card with Enter or Space
+  document.addEventListener('keydown', function (e) {
+    if ((e.key === 'Enter' || e.key === ' ') && e.target.classList.contains('mcard-book')) {
+      e.preventDefault();
+      e.target.click();
+    }
+  });
+
   // Email is assembled on click so it never appears in the page source (scraper protection)
   document.addEventListener('click', function (e) {
     const btn = e.target.closest('.reveal-email');
@@ -583,7 +585,7 @@
   // Calendly username: chrislines96
   // Tip: if Chris creates separate event types, replace each URL with the specific event link e.g. https://calendly.com/chrislines96/connection-call
   const calendlyLinks = {
-    discovery:  'https://calendly.com/chrislines96',
+    discovery:  'https://calendly.com/chrislines96/connection-call',
     foundation: 'https://calendly.com/chrislines96',
     wellbeing:  'https://calendly.com/chrislines96',
     journey:    'https://calendly.com/chrislines96'
@@ -605,6 +607,13 @@
 
     document.getElementById('page-book').querySelector('.book-body').classList.add('cal-open');
 
+    // On phones the booking panel sits below the package cards, so bring it into view
+    if (getComputedStyle(wrap).position === 'static') {
+      requestAnimationFrame(() => {
+        window.scrollTo({ top: wrap.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
+      });
+    }
+
     function initWidget() {
       Calendly.initInlineWidget({ url: calendlyLinks[type], parentElement: embed });
     }
@@ -618,8 +627,14 @@
   }
 
   function closeCal() {
-    document.getElementById('cal-embed-wrap').style.display = 'none';
+    const wrap = document.getElementById('cal-embed-wrap');
+    const stacked = getComputedStyle(wrap).position === 'static';
+    wrap.style.display = 'none';
     document.getElementById('page-book').querySelector('.book-body').classList.remove('cal-open');
+    if (stacked) {
+      const picker = document.querySelector('#page-book .meeting-picker');
+      window.scrollTo({ top: picker.getBoundingClientRect().top + window.scrollY - 120, behavior: 'smooth' });
+    }
   }
 
   function handleContact(e) {
