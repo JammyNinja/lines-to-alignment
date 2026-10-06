@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Lines To Alignment — Personal Coaching with Chris</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=3">
+<link rel="stylesheet" href="styles.css?v=4">
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" defer></script>
 </head>
 <body class="home-active">
@@ -239,6 +239,20 @@
         </div>
       </div>
 
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is this therapy?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-answer">
+          <div class="faq-answer-inner">
+            <p>No. Coaching is not therapy, counselling, or medical, psychological or financial advice, and it doesn't diagnose or treat any condition. It's a forward-focused partnership to help you build awareness and take action in your life.</p>
+            <p>You remain responsible for your own decisions and their results. If you're receiving treatment, please keep working with your doctor or therapist alongside coaching.</p>
+            <p>If you're struggling with your mental health, please speak to your GP or call NHS 111. If you're in crisis, call Samaritans free on 116 123, or 999 in an emergency.</p>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
     <div class="faq-image fu d4">
@@ -464,6 +478,43 @@
   </div>
 </div>
 
+<div class="page" id="page-legal">
+  <div class="book-top">
+    <div class="leaf-bg"></div>
+    <p class="eyebrow fu d1">The small print</p>
+    <h1 class="fu d2">Terms &amp; <em>Privacy</em></h1>
+    <p class="fu d3">Plain-English terms for working together, and how your information is handled.</p>
+  </div>
+
+  <div class="legal fu d3">
+    <h2>About these terms</h2>
+    <p>Lines To Alignment is run by Chris Lines. These terms apply when you book a coaching package. By booking, you agree to them. They don't affect your statutory rights.</p>
+
+    <h2>Coaching, not therapy</h2>
+    <p>Coaching is not therapy, counselling, or medical, psychological or financial advice, and it doesn't diagnose or treat any condition. You remain responsible for your own decisions, actions and results. If you're struggling with your mental health, please speak to your GP or call NHS 111. If you're in crisis, call Samaritans free on 116 123, or 999 in an emergency.</p>
+
+    <h2>Your 14-day cancellation period</h2>
+    <p>When you buy a coaching package, you have 14 days from the day after you book to cancel and get a refund.</p>
+    <p>If you'd like your sessions to start within those 14 days, you're asking for them to begin straight away. If you then cancel within the 14 days, you'll pay for any sessions already given, at the package rate (for example, one of the four sessions in a 1 Month Foundation is £62.50), and the rest will be refunded.</p>
+    <p>To cancel, email <a href="mailto:hello@linestoalignment.com">hello@linestoalignment.com</a> within the 14 days.</p>
+
+    <h2>After 14 days</h2>
+    <p>Once the 14-day period has passed, all sales are final and no refunds are given. If you're on a payment plan, the remaining instalments are still due.</p>
+
+    <h2>Your privacy</h2>
+    <p><strong>What I collect.</strong> Your name, email address and anything you choose to tell me when you use the contact form, book a call, or work with me, including notes from our sessions.</p>
+    <p><strong>Why.</strong> To reply to you, arrange and deliver coaching, and take payment. I don't sell your information or use it for anything else.</p>
+    <p><strong>Who else handles it.</strong> The contact form is run by Formspree and bookings by Calendly. They process your details on my behalf to provide those services.</p>
+    <p><strong>How long I keep it.</strong> Only as long as needed for the purposes above, or as required by law.</p>
+    <p><strong>Your rights.</strong> You can ask to see, correct or delete the information I hold about you by emailing <a href="mailto:hello@linestoalignment.com">hello@linestoalignment.com</a>. If you're unhappy with how your information is handled, you can complain to the Information Commissioner's Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <span>&copy; Lines To Alignment</span>
+  <a onclick="showPage('legal')">Terms &amp; Privacy</a>
+</footer>
+
 <script>
   function revealPhone() {
     // Store Chris's number reversed to avoid scraping bots
@@ -494,7 +545,8 @@
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
     document.getElementById('page-' + id).classList.add('active');
-    document.getElementById('nav-' + id).classList.add('active');
+    const navLink = document.getElementById('nav-' + id);
+    if (navLink) navLink.classList.add('active');
     document.getElementById('page-' + id).querySelectorAll('.fu').forEach(el => {
       el.style.animation = 'none';
       void el.offsetHeight;
