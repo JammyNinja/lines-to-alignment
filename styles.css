@@ -618,7 +618,8 @@ nav {
 .mcard-book:focus-visible { outline: 2px solid var(--moss); outline-offset: -4px; }
 .mcard-info { cursor: default; }
 .mcard-info:hover { background: var(--cream); }
-.mnote { margin-top: 1.5rem; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); font-weight: 500; }
+.mnote { display: block; margin-top: 1.5rem; padding: 0; background: none; border: none; font-family: 'Jost', sans-serif; text-align: left; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--moss); font-weight: 500; cursor: pointer; transition: color 0.2s; }
+.mnote:hover { color: var(--jungle); }
 .note-icon { vertical-align: -2px; margin-right: 0.5rem; }
 
 .book-note {
