@@ -403,6 +403,19 @@ nav {
 
 .stars { color: var(--gold); font-size: 0.8rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
 
+.testi-single { grid-template-columns: 1fr; max-width: 760px; background: none; }
+.testi-single .tcard { border: 1px solid var(--line); }
+.tcard-result {
+  margin-top: 2rem;
+  padding: 0.2rem 0 0.2rem 1.2rem;
+  border-left: 3px solid var(--gold);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: var(--forest);
+  font-weight: 300;
+}
+.tcard-result-label { display: block; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--moss); font-weight: 500; margin-bottom: 0.3rem; }
+
 .testi-cta {
   text-align: center;
   padding: 3rem 2rem 6rem;
