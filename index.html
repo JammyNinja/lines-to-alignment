@@ -8,7 +8,7 @@
 <link rel="icon" type="image/png" sizes="192x192" href="images/favicon-192.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=6">
+<link rel="stylesheet" href="styles.css?v=7">
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" defer></script>
 </head>
 <body class="home-active">
@@ -361,7 +361,7 @@
         <ul class="contact-links fu d5">
           <li>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 7l-10 6L2 7"/></svg>
-            <a href="mailto:chrislines@tutamail.com">chrislines@tutamail.com</a>
+            <button type="button" class="reveal-btn reveal-email">Click to reveal email</button>
           </li>
           <li>
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
@@ -484,7 +484,7 @@
     <h2>Your 14-day cancellation period</h2>
     <p>When you buy a coaching package, you have 14 days from the day after you book to cancel and get a refund.</p>
     <p>If you'd like your sessions to start within those 14 days, you're asking for them to begin straight away. If you then cancel within the 14 days, you'll pay for any sessions already given, at the package rate (for example, one of the four sessions in a 1 Month Foundation is £62.50), and the rest will be refunded.</p>
-    <p>To cancel, email <a href="mailto:chrislines@tutamail.com">chrislines@tutamail.com</a> within the 14 days.</p>
+    <p>To cancel, email me (<button type="button" class="reveal-btn reveal-email">click to reveal my email address</button>) within the 14 days.</p>
 
     <h2>After 14 days</h2>
     <p>Once the 14-day period has passed, all sales are final and no refunds are given. If you're on a payment plan, the remaining instalments are still due.</p>
@@ -498,7 +498,7 @@
     <p><strong>Why.</strong> To reply to you, arrange and deliver coaching, and take payment. I don't sell your information or use it for anything else.</p>
     <p><strong>Who else handles it.</strong> The contact form is run by Formspree and bookings by Calendly. They process your details on my behalf to provide those services.</p>
     <p><strong>How long I keep it.</strong> Only as long as needed for the purposes above, or as required by law.</p>
-    <p><strong>Your rights.</strong> You can ask to see, correct or delete the information I hold about you by emailing <a href="mailto:chrislines@tutamail.com">chrislines@tutamail.com</a>. If you're unhappy with how your information is handled, you can complain to the Information Commissioner's Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
+    <p><strong>Your rights.</strong> You can ask to see, correct or delete the information I hold about you by emailing me (<button type="button" class="reveal-btn reveal-email">click to reveal my email address</button>). If you're unhappy with how your information is handled, you can complain to the Information Commissioner's Office at <a href="https://ico.org.uk" target="_blank" rel="noopener">ico.org.uk</a>.</p>
   </div>
 </div>
 
@@ -508,6 +508,17 @@
 </footer>
 
 <script>
+  // Email is assembled on click so it never appears in the page source (scraper protection)
+  document.addEventListener('click', function (e) {
+    const btn = e.target.closest('.reveal-email');
+    if (!btn) return;
+    const addr = ['chrislines', ['tutamail', 'com'].join('.')].join('@');
+    const link = document.createElement('a');
+    link.href = 'mailto:' + addr;
+    link.textContent = addr;
+    btn.replaceWith(link);
+  });
+
   function revealPhone() {
     // Store Chris's number reversed to avoid scraping bots
     // e.g. if number is "07700 123456" enter "654321 00770" below
@@ -627,14 +638,14 @@
         t.style.borderLeftColor = 'var(--moss)';
         form.querySelectorAll('input[type=text], input[type=email], textarea, select').forEach(el => el.value = '');
       } else {
-        t.textContent = '⚠  Something went wrong — please email chrislines@tutamail.com directly.';
+        t.textContent = '⚠  Something went wrong — please try again, or use the Book a Free Call button to get in touch.';
         t.style.borderLeftColor = '#c0392b';
       }
       t.style.display = 'block';
       setTimeout(() => t.style.display = 'none', 7000);
     }).catch(() => {
       const t = document.getElementById('ctSuccess');
-      t.textContent = '⚠  Could not connect — please email chrislines@tutamail.com directly.';
+      t.textContent = '⚠  Could not connect — please try again, or use the Book a Free Call button to get in touch.';
       t.style.borderLeftColor = '#c0392b';
       t.style.display = 'block';
     });
