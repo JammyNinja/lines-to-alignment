@@ -758,6 +758,61 @@ nav {
 
 .hj-cta:hover { background: var(--jungle); }
 
+/* HOME HERO + HOW THE COACHING WORKS */
+.hj-headline {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 3.6vw, 3.6rem);
+  font-weight: 400;
+  color: var(--forest);
+  line-height: 1.25;
+  text-align: center;
+  max-width: 600px;
+}
+
+.hj-step {
+  max-width: 520px;
+  text-align: center;
+  margin-bottom: 3rem;
+}
+
+.hj-step-label {
+  font-size: 0.72rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--moss);
+  font-weight: 500;
+  margin-bottom: 0.6rem;
+}
+
+.hj-step-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.5rem, 2vw, 2rem);
+  font-weight: 400;
+  color: var(--forest);
+  margin-bottom: 0.8rem;
+}
+
+.hj-step-desc {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--forest);
+}
+
+.hj-link {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--moss);
+  font-size: 0.9rem;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  border-bottom: 1px solid currentColor;
+}
+
+.hj-link:hover { color: var(--jungle); }
+
+.hj-cta-wrap + .hj-item { margin-top: 3rem; }
+.hj-item > .eyebrow { margin-bottom: 2.5rem; }
+
 /* WHAT TO EXPECT PAGE */
 .expect-intro {
   max-width: 740px;
@@ -865,7 +920,7 @@ nav {
   .bio-right { padding: 3.5rem 1.5rem 5rem; }
   .home-journey { max-width: 100%; }
   .hj-question { font-size: 1.4rem; }
-  .hj-tagline, .hj-cta-wrap { padding-left: calc(16px + 1.5rem); }
+  .hj-tagline, .hj-cta-wrap { padding-left: 0; }
   .contact-wrap { grid-template-columns: 1fr; min-height: calc(100vh - 110px); }
   .contact-panel { padding: 4rem 1rem; }
   .contact-form-area { padding: 4rem 1rem; }
