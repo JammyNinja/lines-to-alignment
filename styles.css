@@ -1199,3 +1199,6 @@ nav { flex-direction: column; align-items: flex-end; gap: 0.9rem; flex: 1 1 auto
 }
 .site-footer a { color: inherit; cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
 .site-footer a:hover { color: var(--forest); }
+
+/* FAQ inline link */
+.faq-link { color: var(--moss); cursor: pointer; text-decoration: underline; text-underline-offset: 3px; }
