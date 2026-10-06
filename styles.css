@@ -614,6 +614,13 @@ nav {
 }
 .mcard:hover .cal-btn { color: var(--jungle); }
 
+.mdur svg { vertical-align: -2px; margin-right: 0.45rem; }
+.mcard-book:focus-visible { outline: 2px solid var(--moss); outline-offset: -4px; }
+.mcard-info { cursor: default; }
+.mcard-info:hover { background: var(--cream); }
+.mnote { margin-top: 1.5rem; font-size: 1rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--sage); font-weight: 500; }
+.note-icon { vertical-align: -2px; margin-right: 0.5rem; }
+
 .book-note {
   text-align: center;
   padding: 0 2rem 5rem;
