@@ -895,6 +895,55 @@ nav {
   line-height: 1.75;
 }
 
+.journey-phase {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--sage);
+  font-weight: 500;
+  margin: 0 0 1.25rem calc(46px + 2rem);
+}
+
+.journey-note {
+  margin-top: 1rem;
+  font-style: italic;
+  color: #445040;
+  font-weight: 300;
+  line-height: 1.75;
+}
+
+.expect-practical {
+  max-width: 700px;
+  margin: 0 auto 6rem;
+  padding: 0 2rem;
+}
+
+.expect-list {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 3rem;
+}
+
+.expect-list li {
+  font-size: 1.05rem;
+  color: #445040;
+  font-weight: 300;
+  line-height: 1.75;
+  padding: 1.1rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.expect-list li:first-child { border-top: 1px solid var(--line); }
+.expect-list strong { color: var(--forest); font-weight: 500; }
+.expect-cta { text-align: center; }
+
+@media (max-width: 900px) {
+  .expect-intro, .expect-journey, .expect-practical { padding: 0 1rem; }
+  .expect-intro { margin-top: 3rem; }
+  .journey-step { gap: 1.2rem; }
+  .journey-phase { margin-left: calc(46px + 1.2rem); }
+}
+
 /* ANIMATIONS */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(28px); }
