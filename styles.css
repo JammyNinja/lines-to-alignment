@@ -465,6 +465,9 @@ nav {
 .contact-links { list-style: none; padding: 0; margin: 0 0 2rem; }
 .contact-links li { display: flex; align-items: center; gap: 0.9rem; margin-bottom: 1rem; color: var(--gold); }
 .contact-links svg { flex-shrink: 0; }
+.contact-links .reveal-btn { font-size: 1.15rem; color: var(--cream); text-decoration-color: var(--gold); }
+.contact-links .reveal-btn:hover { color: var(--gold); }
+.legal .reveal-btn { font-size: inherit; color: var(--moss); }
 .contact-links a { font-size: 1.15rem; font-weight: 300; color: var(--cream); text-decoration: none; border-bottom: 1px solid var(--gold); transition: color 0.2s; }
 .contact-links a:hover { color: var(--gold); }
 .contact-note { font-size: 0.95rem; letter-spacing: 0.06em; color: var(--cream); opacity: 0.75; font-weight: 300; }
