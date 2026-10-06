@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lines To Alignment — Wellbeing Coaching with Chris</title>
+<title>Lines To Alignment — Personal Coaching with Chris</title>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
 <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" defer></script>
@@ -15,16 +15,21 @@
     <img src="images/logo.jpeg" alt="Lines To Alignment" class="header-logo-img">
   </div>
   <nav>
-    <span class="nav-tagline">Mindset &amp; Transformation Coaching</span>
-    <ul class="nav-links">
-      <li><a id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
-      <li><a id="nav-story" onclick="showPage('story')">My Story</a></li>
-      <li><a id="nav-faq" onclick="showPage('faq')">FAQ</a></li>
-      <li><a id="nav-expect" onclick="showPage('expect')">What to Expect</a></li>
-      <li><a id="nav-contact" onclick="showPage('contact')">Contact</a></li>
-      <li><a id="nav-book" onclick="showPage('book')">Book</a></li>
-    </ul>
-    <button class="nav-book-btn" onclick="startJourney()">Book a Free Call</button>
+    <span class="nav-tagline">Personal Coaching</span>
+    <div class="nav-menu" id="nav-menu">
+      <ul class="nav-links">
+        <li><a id="nav-home" class="active" onclick="showPage('home')">Home</a></li>
+        <li><a id="nav-story" onclick="showPage('story')">My Story</a></li>
+        <li><a id="nav-faq" onclick="showPage('faq')">FAQ</a></li>
+        <li><a id="nav-expect" onclick="showPage('expect')">What to Expect</a></li>
+        <li><a id="nav-contact" onclick="showPage('contact')">Contact</a></li>
+        <li><a id="nav-book" onclick="showPage('book')">Book</a></li>
+      </ul>
+      <button class="nav-book-btn" onclick="startJourney()">Book a Free Call</button>
+    </div>
+    <button class="nav-toggle" id="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="nav-menu" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </button>
   </nav>
 </header>
 
@@ -92,28 +97,23 @@
       <p class="eyebrow fu d1">The Journey</p>
       <h1 class="fu d2">My <em>Story</em></h1>
       <div class="bio-text fu d3">
-        <p>For much of my early life, I lived disconnected from myself.
-On the surface, I looked fairly normal — I played a lot of sport, spent weekends out drinking with friends, and tried to fit into the version of life I thought I was supposed to live. But underneath that, many of my behaviours were driven by insecurity, people-pleasing, and a deep fear of not being enough.
-</p>
-<p>
-Even from a young age, there was a sense that something didn’t quite feel right.
-During my late teens and university years, that disconnect became harder to ignore. I struggled heavily with anxiety, isolation, low self-worth, and a fear of fully expressing myself. Despite this, I completed a degree in Biochemistry, earning a 2:1 while navigating a period where internally I felt deeply lost and disconnected from who I was.
-After university, I hit a point where my confidence and self-belief were at an all-time low. I felt stuck, directionless, and disconnected from life. Looking back now, I can see that much of my life up until that point had been lived through fear — fear of failure, fear of judgment, fear of being seen, and fear of not being accepted.
-Everything began to shift during 2020.
-</p>
-For the first time, I started feeling a genuine desire not just to survive life, but to consciously improve it.
-I began changing my relationship with food, health, and my body. I developed better habits, improved my physical health and energy, and started taking greater responsibility for my thoughts, behaviours, and emotional patterns. This opened the door to deeper self-development, psychological exploration, and a growing interest in transformation and human potential.
-As I began rebuilding my relationship with myself, other areas of my life started improving too — including my career, finances, confidence, and sense of direction.
-Then in late 2022, after breaking my ankle, I experienced another major turning point.
-What initially looked like a physical injury became a catalyst for a much deeper internal confrontation. Old fears, existential questions, and unresolved emotional patterns resurfaced intensely, pushing me into a period of deep reflection and inner transformation.
-During this time, I began questioning many of the assumptions, beliefs, and narratives I had previously accepted without much thought. This led me into years of exploration across health, psychology, mindset, philosophy, spirituality, embodiment, and self-awareness.
-What I eventually realised was that no amount of external knowledge can replace self-knowledge.
-You can endlessly chase information, success, validation, or achievement, but if your relationship with yourself is built on fear, shame, or unworthiness, it will continue to shape your experience of life.
-The deeper work became less about “fixing” myself and more about reconnecting with who I truly was beneath the conditioning, fear, and self-rejection.
-That journey continues today.
-The work I now do is rooted not only in study and learning, but in lived experience — learning how to rebuild self-trust, develop resilience, take responsibility for my life, and create change from the inside out.
-</p>
-<p></p>
+        <p>For much of my early life, I lived disconnected from myself.</p>
+        <p>On the surface, I looked fairly normal — I played a lot of sport, spent weekends out drinking with friends, and tried to fit into the version of life I thought I was supposed to live. But underneath that, many of my behaviours were driven by insecurity, people-pleasing, and a deep fear of not being enough.</p>
+        <p>Even from a young age, there was a sense that something didn’t quite feel right.</p>
+        <p>During my late teens and university years, that disconnect became harder to ignore. I struggled heavily with anxiety, isolation, low self-worth, and a fear of fully expressing myself. Despite this, I completed a degree in Biochemistry, earning a 2:1 while navigating a period where internally I felt deeply lost and disconnected from who I was.</p>
+        <p>After university, I hit a point where my confidence and self-belief were at an all-time low. I felt stuck, directionless, and disconnected from life. Looking back now, I can see that much of my life up until that point had been lived through fear — fear of failure, fear of judgment, fear of being seen, and fear of not being accepted.</p>
+        <p>Everything began to shift during 2020.</p>
+        <p>For the first time, I started feeling a genuine desire not just to survive life, but to consciously improve it.</p>
+        <p>I began changing my relationship with food, health, and my body. I developed better habits, improved my physical health and energy, and started taking greater responsibility for my thoughts, behaviours, and emotional patterns. This opened the door to deeper self-development, psychological exploration, and a growing interest in transformation and human potential.</p>
+        <p>As I began rebuilding my relationship with myself, other areas of my life started improving too — including my career, finances, confidence, and sense of direction.</p>
+        <p>Then in late 2022, after breaking my ankle, I experienced another major turning point.</p>
+        <p>What initially looked like a physical injury became a catalyst for a much deeper internal confrontation. Old fears, existential questions, and unresolved emotional patterns resurfaced intensely, pushing me into a period of deep reflection and inner transformation.</p>
+        <p>During this time, I began questioning many of the assumptions, beliefs, and narratives I had previously accepted without much thought. This led me into years of exploration across health, psychology, mindset, philosophy, spirituality, embodiment, and self-awareness.</p>
+        <p>What I eventually realised was that no amount of external knowledge can replace self-knowledge.</p>
+        <p>You can endlessly chase information, success, validation, or achievement, but if your relationship with yourself is built on fear, shame, or unworthiness, it will continue to shape your experience of life.</p>
+        <p>The deeper work became less about “fixing” myself and more about reconnecting with who I truly was beneath the conditioning, fear, and self-rejection.</p>
+        <p>That journey continues today.</p>
+        <p>The work I now do is rooted not only in study and learning, but in lived experience — learning how to rebuild self-trust, develop resilience, take responsibility for my life, and create change from the inside out.</p>
       </div>
     </div>
     <div class="story-image fu d4">
@@ -486,7 +486,17 @@ The work I now do is rooted not only in study and learning, but in lived experie
     item.classList.toggle('open');
   }
 
+  function toggleMenu(force) {
+    const header = document.querySelector('.site-header');
+    const open = typeof force === 'boolean' ? force : !header.classList.contains('menu-open');
+    header.classList.toggle('menu-open', open);
+    const btn = document.getElementById('nav-toggle');
+    btn.setAttribute('aria-expanded', open);
+    btn.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+  }
+
   function showPage(id) {
+    toggleMenu(false);
     document.body.classList.toggle('home-active', id === 'home');
     document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
     document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
