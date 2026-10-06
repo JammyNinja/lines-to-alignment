@@ -1086,8 +1086,16 @@ body.home-active .header-logo { width: auto; }
 body.home-active .header-logo-img { width: auto; height: 180px; }
 
 /* Desktop: tagline sits above the links instead of beside them */
-nav { flex-direction: column; align-items: flex-end; gap: 0.9rem; }
-.nav-menu { display: flex; align-items: center; gap: 2rem; }
+nav { flex-direction: column; align-items: flex-end; gap: 0.9rem; flex: 1 1 auto; min-width: 0; margin-left: 2rem; }
+/* If the links ever don't fit (e.g. larger browser text), scroll sideways instead of spilling off-screen */
+.nav-menu {
+  display: flex; align-items: center; gap: 2rem;
+  max-width: 100%; overflow-x: auto; scrollbar-width: thin; scrollbar-color: var(--mist) transparent;
+  padding: 0 0 8px 1rem; margin-bottom: -8px;
+}
+.nav-menu::-webkit-scrollbar { height: 3px; }
+.nav-menu::-webkit-scrollbar-thumb { background: var(--mist); }
+.nav-menu > * { flex-shrink: 0; }
 .nav-links { gap: 2rem; }
 .nav-links li::before { left: -1rem; }
 .nav-links a { font-size: 0.95rem; }
@@ -1122,8 +1130,9 @@ nav { flex-direction: column; align-items: flex-end; gap: 0.9rem; }
 
 /* Tablet & phone: links collapse into a drop-down menu */
 @media (max-width: 1180px) {
-  nav { flex-direction: row; align-items: center; gap: 1rem; }
+  nav { flex-direction: row; align-items: center; justify-content: flex-end; gap: 1rem; }
   .nav-toggle { display: flex; }
+  .nav-menu { overflow-x: visible; max-width: none; margin-bottom: 0; }
   .nav-menu {
     display: none;
     position: absolute;
