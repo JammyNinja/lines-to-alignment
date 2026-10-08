@@ -403,7 +403,8 @@ nav {
 
 .stars { color: var(--gold); font-size: 0.8rem; margin-bottom: 1rem; letter-spacing: 0.1em; }
 
-.testi-single { grid-template-columns: 1fr; max-width: 760px; background: none; }
+.testi-single { grid-template-columns: 1fr; max-width: 760px; background: none; gap: 2rem; }
+.tcard p + p { margin-top: 1rem; }
 .testi-single .tcard { border: 1px solid var(--line); }
 .tcard-result {
   margin-top: 2rem;
