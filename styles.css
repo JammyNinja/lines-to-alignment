@@ -132,16 +132,18 @@ nav {
 .nav-top { display: flex; align-items: center; gap: 1.4rem; }
 .nav-login-link {
   font-family: 'Jost', sans-serif;
-  font-size: 0.72rem;
-  letter-spacing: 0.13em;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
   text-transform: uppercase;
+  font-weight: 500;
   color: var(--forest);
   text-decoration: none;
-  border-bottom: 1px solid currentColor;
-  padding-bottom: 1px;
+  border: 1px solid var(--forest);
+  padding: 0.38rem 0.9rem;
   white-space: nowrap;
+  transition: background 0.2s, color 0.2s;
 }
-.nav-login-link:hover { color: var(--jungle); }
+.nav-login-link:hover { background: var(--forest); color: var(--cream); }
 .nav-menu .nav-login-btn { display: none; }
 
 .nav-links li { position: relative; }
