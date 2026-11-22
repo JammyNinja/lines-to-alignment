@@ -113,6 +113,36 @@ nav {
   transition: background 0.2s;
 }
 .nav-book-btn:hover { background: var(--jungle); }
+.nav-login-btn {
+  color: var(--forest);
+  border: 1px solid var(--forest);
+  padding: calc(0.7rem - 1px) 1.4rem;
+  font-family: 'Jost', sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+  flex-shrink: 0;
+  transition: background 0.2s, color 0.2s;
+}
+.nav-login-btn:hover { background: var(--forest); color: var(--cream); }
+/* Desktop: "Client Login" sits beside the tagline; the button version lives in the phone menu. */
+.nav-top { display: flex; align-items: center; gap: 1.4rem; }
+.nav-login-link {
+  font-family: 'Jost', sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--forest);
+  text-decoration: none;
+  border-bottom: 1px solid currentColor;
+  padding-bottom: 1px;
+  white-space: nowrap;
+}
+.nav-login-link:hover { color: var(--jungle); }
+.nav-menu .nav-login-btn { display: none; }
 
 .nav-links li { position: relative; }
 .nav-links li::before {
@@ -1232,6 +1262,9 @@ nav { flex-direction: column; align-items: flex-end; gap: 0.9rem; flex: 1 1 auto
   }
   .nav-links a.active::after { display: none; }
   .nav-book-btn { margin-top: 1.2rem; padding: 1rem; width: 100%; }
+  .nav-menu .nav-login-btn { display: block; margin-top: 1.2rem; padding: calc(1rem - 1px); text-align: center; }
+  .nav-login-link { display: none; }
+  .nav-login-btn + .nav-book-btn { margin-top: 0.6rem; }
 }
 
 @media (max-width: 900px) {
